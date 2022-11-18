@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.chatapp.listeners.UsersListener;
 import com.example.chatapp.models.User;
 
 import androidx.annotation.NonNull;
@@ -18,8 +19,10 @@ import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder>{
     private final List<User> users;
+    private final UsersListener usersListener;
 
-    public UsersAdapter(List<User> users) {
+    public UsersAdapter(List<User> users, UsersListener usersListener) {
+        this.usersListener = usersListener;
         this.users = users;
     }
 
@@ -53,6 +56,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
             binding.textName.setText(user.name);
             binding.textEmail.setText(user.email);
             binding.imageProfile.setImageBitmap(getUserImage(user.image));
+            binding.getRoot().setOnClickListener(v -> usersListener.onUserClicked(user));
         }
     }
     private Bitmap getUserImage(String encodedImage) {
