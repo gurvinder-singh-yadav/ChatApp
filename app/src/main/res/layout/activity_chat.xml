@@ -52,7 +52,7 @@
         app:layout_constraintBottom_toBottomOf="@id/imageBack"
         app:layout_constraintEnd_toStartOf="@id/imageInfo"
         app:layout_constraintStart_toEndOf="@id/imageBack"
-        app:layout_constraintTop_toTop0f="@id/imageBack" />
+        app:layout_constraintTop_toTopOf="@id/imageBack" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
